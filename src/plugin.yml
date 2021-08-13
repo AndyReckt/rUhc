@@ -1,8 +1,8 @@
-name: qUHC
-main: com.thesevenq.uhc.UHC
+name: rUHC
+main: me.andyreckt.uhc.UHC
 version: 1.0-SNAPSHOT
-description: Sicaro UHC Core
-author: thesevenq
+description: Reality UHC Core, a fork of Sicaro-UHC
+authors: [AndyReckt, TheSevenQ]
 depend: [ProtocolLib]
 commands:
    autostart:

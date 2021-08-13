@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="minecraft" name="Minecraft">
+      <configuration>
+        <autoDetectTypes>
+          <platformType>SPIGOT</platformType>
+        </autoDetectTypes>
+      </configuration>
+    </facet>
+  </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
@@ -63,5 +72,13 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="ProtocolLib" level="project" />
+    <orderEntry type="library" name="ProtocolSupport-1.8" level="project" />
+    <orderEntry type="library" name="WorldBorder" level="project" />
+    <orderEntry type="library" name="utils-1.0-SNAPSHOT (1)" level="project" />
+    <orderEntry type="library" name="ziggurat-1.0-SNAPSHOT (1)" level="project" />
+    <orderEntry type="library" name="jedis-3.6.3" level="project" />
+    <orderEntry type="library" name="mongo-java-driver-3.12.9" level="project" />
+    <orderEntry type="library" name="patched" level="project" />
   </component>
 </module>
