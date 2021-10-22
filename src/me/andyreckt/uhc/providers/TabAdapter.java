@@ -54,7 +54,7 @@ public class TabAdapter implements ZigguratAdapter {
         tab.add(new BufferedTabObject().text("&ePlayed&7: &9" + data.getPlayed()).column(TabColumn.MIDDLE).slot(7));
         /*
         tab.add(new BufferedTabObject().text("&9&lTop Killers").column(TabColumn.LEFT).slot(11));
-        tab.add(new BufferedTabObject().text("&eThere are currently").column(TabColumn.LEFT).slot(12));
+        tab.giadd(new BufferedTabObject().text("&eThere are currently").column(TabColumn.LEFT).slot(12));
         tab.add(new BufferedTabObject().text("&90 &etop killers.").column(TabColumn.LEFT).slot(13));
         */
 

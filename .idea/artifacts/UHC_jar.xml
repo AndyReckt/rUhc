@@ -1,14 +1,11 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="UHC:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts</output-path>
+    <output-path>$PROJECT_DIR$/out/artifacts/UHC_jar</output-path>
     <root id="archive" name="UHC.jar">
-      <element id="module-output" name="UHC" />
-      <element id="library" level="project" name="ziggurat-1.0-SNAPSHOT (1)" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/libs/ProtocolLib.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/libs/ProtocolSupport-1.8.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/libs/ziggurat-1.0-SNAPSHOT (1).jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/libs/WorldBorder.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/libs/utils-1.0-SNAPSHOT (1).jar" path-in-jar="/" />
+      <element id="module-output" name="redditUhc" />
+      <element id="dir-copy" path="$PROJECT_DIR$/src/resources" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/jedis-3.6.3.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/mongo-java-driver-3.12.9.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>
