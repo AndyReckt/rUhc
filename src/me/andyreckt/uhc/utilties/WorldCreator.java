@@ -74,6 +74,7 @@ public class WorldCreator {
     private void createWorld() {
 		int sizeBig = 2500;
 
+
         World w = Bukkit.createWorld(new org.bukkit.WorldCreator("uhc_world").environment(World.Environment.NORMAL).type(WorldType.NORMAL));
         w.setTime(0);
         
@@ -92,30 +93,51 @@ public class WorldCreator {
         
 		if (!UHC.getInstance().getGameManager().isGenerated()) {
             UHC.getInstance().getGameManager().setMapGenerating(true);
-	    	
-			new BukkitRunnable() {
-				public void run() {
-                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb whoosh off");
-                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb denypearl on");
-                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb " + w.getName() + " setcorners " + sizeBig + " -" + sizeBig + " -" + sizeBig + " " + sizeBig);
-                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb " + w_nether.getName() + " setcorners " + (sizeBig / 8) + " -" + (sizeBig / 8) + " -" + (sizeBig / 8) + " " + (sizeBig / 8));
-                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb shape square");
-                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb setmsg \"\"");
-                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb portal on");
-                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb knockback 2");
-                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb " + w.getName() + " fill " + 100);
-                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb " + w.getName() + " fill confirm");
-                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb " + w_nether.getName() + " fill " + 50);
-                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb " + w_nether.getName() + " fill confirm");
+            WorldGeneration.loadUhc(sizeBig);
+        }
 
-                    BorderManager.border = 2000;
-                    new Border(Bukkit.getWorld("uhc_world"), 2000);
+        Bukkit.getScheduler().runTaskLater(UHC.getInstance(), () -> {
+            BorderManager.border = 2000;
+            new Border(Bukkit.getWorld("uhc_world"), sizeBig);
+            Bukkit.getWorld("uhc_world").setGameRuleValue("naturalRegeneration", "false");
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb whoosh off");
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb denypearl on");
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb " + w.getName() + " setcorners " + sizeBig + " -" + sizeBig + " -" + sizeBig + " " + sizeBig);
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb " + w_nether.getName() + " setcorners " + (sizeBig / 8) + " -" + (sizeBig / 8) + " -" + (sizeBig / 8) + " " + (sizeBig / 8));
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb shape square");
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb setmsg \"\"");
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb portal on");
+            Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb knockback 2");
+        }, 80L);
 
-                    Bukkit.getWorld("uhc_world").setGameRuleValue("naturalRegeneration", "false");
-					Bukkit.getWorld("uhc_nether").setGameRuleValue("naturalRegeneration", "false");
-				}
-			}.runTaskLater(UHC.getInstance(), 20 * 5);
-		}
+
+    /*
+        new BukkitRunnable() {
+            public void run() {
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb whoosh off");
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb denypearl on");
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb " + w.getName() + " setcorners " + sizeBig + " -" + sizeBig + " -" + sizeBig + " " + sizeBig);
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb " + w_nether.getName() + " setcorners " + (sizeBig / 8) + " -" + (sizeBig / 8) + " -" + (sizeBig / 8) + " " + (sizeBig / 8));
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb shape square");
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb setmsg \"\"");
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb portal on");
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb knockback 2");
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb " + w.getName() + " fill " + 250);
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb " + w.getName() + " fill confirm");
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb " + w_nether.getName() + " fill " + 150);
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "wb " + w_nether.getName() + " fill confirm");
+
+                BorderManager.border = 2000;
+                new Border(Bukkit.getWorld("uhc_world"), 2000);
+
+                Bukkit.getWorld("uhc_world").setGameRuleValue("naturalRegeneration", "false");
+                Bukkit.getWorld("uhc_nether").setGameRuleValue("naturalRegeneration", "false");
+            }
+        }.runTaskLater(UHC.getInstance(), 20 * 5);
+    }
+
+     */
+
     }
 
     private void deleteWorld(boolean createAfter) {
@@ -166,4 +188,6 @@ public class WorldCreator {
         }
         return file.delete();
     }
+
+
 }

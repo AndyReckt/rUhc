@@ -1,12 +1,6 @@
 package me.andyreckt.uhc.utilties.visualise;
 
 
-import me.andyreckt.uhc.UHC;
-import net.minecraft.server.v1_8_R3.*;
-import org.bukkit.Location;
-import org.bukkit.entity.Player;
-import org.bukkit.scheduler.BukkitRunnable;
-
 /**
  * Created by Marko on 27.07.2018.
  */

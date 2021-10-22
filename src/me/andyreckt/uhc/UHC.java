@@ -78,23 +78,15 @@ public class UHC extends JavaPlugin {
 		Config.load(this, false);
 
 		DynMapFeatures.setup();
-
 		setupWorld();
 		registerItems();
 		registerManagers();
 		registerCommands();
 		registerListeners();
-
-		Assemble assemble = new Assemble(this, new BoardAdapter());
-		new Ziggurat(this, new TabAdapter());
-		assemble.setTicks(2);
-		assemble.setAssembleStyle(AssembleStyle.MODERN);
+		registerTabAndScoreboard();
 
 		UHCCommandHandler.hook();
 		this.itemDB = new SimpleItemDB(this);
-
-
-		//if(!new Licence("HZEH-GPEV-1LEI-Y0V9", "https://imperiuscore.000webhostapp.com/verify.php", this).register()) return;
 
 	}
 	
@@ -121,19 +113,21 @@ public class UHC extends JavaPlugin {
 
 	private void setupWorld() {
 		Bukkit.getScheduler().runTaskLater(this, () -> {
-			new WorldCreator(true, gameManager.isWorld());
+			new WorldCreator(true, true); // true, gameManager.isWorld()
+		}, 60L);
+		Bukkit.getScheduler().runTaskLater(this, () -> {
 
 			World uhc = Bukkit.getWorld("uhc_world");
-			uhc.setGameRuleValue("doDaylightCycle", "false");
 			uhc.setTime(0);
             uhc.setGameRuleValue("doFireTick", "false");
             uhc.setGameRuleValue("naturalRegeneration", "false");
+			uhc.setGameRuleValue("doDaylightCycle", "false");
 
-			World uhcNether = Bukkit.getWorld("world_nether");
-			uhcNether.setGameRuleValue("doDaylightCycle", "false");
+			World uhcNether = Bukkit.getWorld("uhc_nether");
 			uhcNether.setTime(0);
 			uhcNether.setGameRuleValue("naturalRegeneration", "false");
-		}, 60L);
+			uhcNether.setGameRuleValue("doDaylightCycle", "false");
+		}, 120L);
 	}
 
 	private void registerCommands() {
@@ -174,6 +168,13 @@ public class UHC extends JavaPlugin {
 			}
 		});
 		Bukkit.getPluginManager().registerEvents(new CustomMovementHandler(), this);
+	}
+
+	private void registerTabAndScoreboard() {
+		Assemble assemble = new Assemble(this, new BoardAdapter());
+		new Ziggurat(this, new TabAdapter());
+		assemble.setTicks(2);
+		assemble.setAssembleStyle(AssembleStyle.MODERN);
 	}
 
 	private void registerItems() {

@@ -35,7 +35,7 @@ public class Border extends BukkitRunnable {
 		this.calculateWalls(border);
 		BorderManager.border = border;
 		
-		this.runTaskTimer(UHC.getInstance(), 0L, 1L);
+		this.runTaskTimer(UHC.getInstance(), 0L, 2L);
 	}
 
 	private void calculateWall(int a, int b) {

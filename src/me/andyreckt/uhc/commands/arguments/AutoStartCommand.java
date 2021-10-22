@@ -3,7 +3,7 @@ package me.andyreckt.uhc.commands.arguments;
 import me.andyreckt.uhc.utilties.Color;
 import me.andyreckt.uhc.utilties.Permission;
 import me.andyreckt.uhc.utilties.StringUtils;
-import org.apache.commons.lang.time.DurationFormatUtils;
+import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import me.andyreckt.uhc.UHC;
 import me.andyreckt.uhc.commands.BaseCommand;
@@ -42,9 +42,9 @@ public class AutoStartCommand extends BaseCommand {
                     return;
                 }
 
+                new AutoStartTask(duration);
                 sender.sendMessage(Color.translate("&eYou have set autostart time to &9" + StringUtils.getRemaining(AutoStartTask.seconds, false) + "&e."));
 
-                new AutoStartTask(duration);
             }
         }
     }

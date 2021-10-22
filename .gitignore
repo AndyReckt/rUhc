@@ -1,1 +1,5 @@
-/libs/
+libs/
+.idea/
+target/
+io/
+out/

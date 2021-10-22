@@ -67,7 +67,7 @@ public class StatsListener extends BaseListener implements Listener {
 			}
 		}.runTaskLater(plugin, 20L * 20);
 
-		Bukkit.getScheduler().runTaskLater(plugin, () -> Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "game forcestop"), 20L * 30);
+		//Bukkit.getScheduler().runTaskLater(plugin, () -> Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "game forcestop"), 20L * 90);
 	}
 
 	@EventHandler(priority = EventPriority.HIGH)
@@ -109,7 +109,7 @@ public class StatsListener extends BaseListener implements Listener {
 			}
 		}.runTaskLater(plugin, 20L * 10);
 
-		Bukkit.getScheduler().runTaskLater(plugin, () -> Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "game forcestop"), 20L * 30);
+		//Bukkit.getScheduler().runTaskLater(plugin, () -> Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "game forcestop"), 20L * 30);
     }
 
 	@EventHandler

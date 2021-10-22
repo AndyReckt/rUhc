@@ -248,7 +248,7 @@ public class UHCUtils {
 				new ItemBuilder(Material.DIAMOND_SWORD).
 				name("&7" + Msg.DOUBLE_ARROW_RIGHT + " &e&lPractice Arena &7" + Msg.DOUBLE_ARROW_LEFT).
 				lore("&7Click this item to join practice arena.").build());*/
-		player.teleport(new Location(Bukkit.getWorld("spawn"), 0, 52, 0));
+		player.teleport(new Location(Bukkit.getWorld("world"), 0, 52, 0));
 		player.setGameMode(GameMode.ADVENTURE);
 		player.updateInventory();
 	}

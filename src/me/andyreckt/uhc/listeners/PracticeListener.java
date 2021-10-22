@@ -6,7 +6,6 @@ import me.andyreckt.uhc.utilties.BaseListener;
 import me.andyreckt.uhc.utilties.InventoryUtils;
 import me.andyreckt.uhc.utilties.UHCUtils;
 import me.andyreckt.uhc.UHC;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

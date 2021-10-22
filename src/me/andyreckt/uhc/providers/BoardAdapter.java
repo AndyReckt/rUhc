@@ -58,6 +58,9 @@ public class BoardAdapter implements AssembleAdapter {
                     }
 
                     add(board, "&eGame Type: &9" + UHCUtils.isPartiesEnabled());
+                    if(!WorldGeneration.isFinished()) {
+                        add(board, "&eGeneration: &9" + WorldGeneration.getFormattedPercentage() + "&e%");
+                    }
                     if(PartyManager.isEnabled()) {
                         Party party = PartyManager.getByPlayer(player);
 

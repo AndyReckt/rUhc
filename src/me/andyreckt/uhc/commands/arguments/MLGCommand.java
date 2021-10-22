@@ -59,6 +59,7 @@ public class MLGCommand extends BaseCommand {
 
 		if(MLGCommand.mlgPlayers.isEmpty()) {
 			Msg.sendMessage("&eNone of the winners signed up for the MLG challenge?.");
+			Bukkit.getScheduler().runTaskLater(UHC.getInstance(), () -> Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "game forcestop"), 20L * 10);
 			return;
 		}
 
@@ -91,6 +92,7 @@ public class MLGCommand extends BaseCommand {
 						Msg.sendMessage("&eCongratulations to &9" + sb.toString().substring(2) + " &efor being an MLG master.");
 
 						this.cancel();
+						Bukkit.getScheduler().runTaskLater(UHC.getInstance(), () -> Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "game forcestop"), 20L * 10);
 						return;
 					}
 
@@ -123,6 +125,7 @@ public class MLGCommand extends BaseCommand {
 					this.delay = 5;
 				} else {
 					if(MLGCommand.mlgPlayers.isEmpty()) {
+						Bukkit.getScheduler().runTaskLater(UHC.getInstance(), () -> Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "game forcestop"), 20L * 10);
 						this.cancel();
 						return;
 					}
@@ -140,7 +143,7 @@ public class MLGCommand extends BaseCommand {
 
 					if(everyoneDied) {
 						Msg.sendMessage("&eNo one was able to complete the MLG challenge!.");
-
+						Bukkit.getScheduler().runTaskLater(UHC.getInstance(), () -> Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "game forcestop"), 20L * 10);
 						this.cancel();
 						return;
 					}

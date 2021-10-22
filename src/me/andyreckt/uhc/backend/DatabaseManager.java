@@ -274,8 +274,10 @@ public class DatabaseManager extends Manager {
     }
 
     public void setupMongo(final String username, final String password, final String database2, final String host, final int port) {
-        final MongoCredential credential = MongoCredential.createCredential(username, database2, password.toCharArray());
+       // final MongoCredential credential = MongoCredential.createCredential(username, database2, password.toCharArray());
+        //client = new MongoClient(new ServerAddress("172.18.0.1", 25644));
         client = new MongoClient(new ServerAddress("localhost", 27017));
+        //client = new MongoClient(new MongoClientURI("mongodb://ulxi4s6tvez9ckircdpk:R7nFCkRGsMeLjq1c7Z7e@b60upaqifl4t0hi-mongodb.services.clever-cloud.com:27017/b60upaqifl4t0hi"));
     }
 
     public void setDatabase(String db) {

@@ -27,6 +27,8 @@ import org.bukkit.event.inventory.InventoryMoveItemEvent;
 import org.bukkit.event.player.*;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import java.util.Map;
+
 public class PlayerListener extends BaseListener implements Listener {
 	public static PlayerListener getInstance() {
 		return Instance;
@@ -44,6 +46,7 @@ public class PlayerListener extends BaseListener implements Listener {
 		Player player = event.getPlayer();
 				
 		event.setJoinMessage("");
+
 
 		UHCData uhcData = UHCData.getByName(player.getName());
 
