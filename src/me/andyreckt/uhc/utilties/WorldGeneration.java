@@ -75,18 +75,21 @@ public class WorldGeneration {
                 }
             }
         }.runTaskTimer(UHC.getInstance(), 0L, 3L);
-
     }
+
     public static void loadNether(int uhcsize){
         if(uhcLoaded && !netherLoaded) {
             setNetherLoaded(true);
-            new WorldGeneration(Bukkit.getWorld("uhc_nether"), uhcsize / 8).load();
+            Bukkit.getScheduler().runTaskLater(UHC.getInstance(), () -> new WorldGeneration(Bukkit.getWorld("uhc_nether"), uhcsize / 8).load(), 20*30);
+
         }
     }
+
     public static void loadUhc(int uhcsize){
         if(!uhcLoaded) {
             setUhcLoaded(true);
-            new WorldGeneration(Bukkit.getWorld("uhc_world"), uhcsize).load();
+            Bukkit.getScheduler().runTaskLater(UHC.getInstance(), () -> new WorldGeneration(Bukkit.getWorld("uhc_world"), uhcsize).load(), 20*30);
+
         }
     }
 
